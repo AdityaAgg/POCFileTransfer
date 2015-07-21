@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection Connection String used in web.config by the application to access the database." defaultValue="Data Source=(LocalDb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\aspnet-POCFileTransfer-20150611040924.mdf;Initial Catalog=aspnet-POCFileTransfer-20150611040924.mdf;Integrated Security=True" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\workspace\\POCFileTransfer\\POCFileTransfer\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+  <parameter name="POCFileTransfer.Models.FileDBContext-Web.config Connection String" description="POCFileTransfer.Models.FileDBContext Connection String used in web.config by the application to access the database." defaultValue="POCFileTransfer.Models.FileDBContext_ConnectionString" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\workspace\\POCFileTransfer\\POCFileTransfer\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='POCFileTransfer.Models.FileDBContext']/@connectionString" />
+  </parameter>
+</parameters>

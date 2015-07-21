@@ -1,0 +1,63 @@
+﻿@*@{
+        ViewBag.Title = "Home";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }*@
+<script src="~/Scripts/angular.js"></script>
+<script src="~/Scripts/fileUpload.js"></script>
+<script src="~/Scripts/ng-file-upload.js"></script>
+<script src="~/Scripts/angular-tree-control.js"></script>
+<link rel="stylesheet" type="text/css" href="~/css/tree-control.css">
+<link rel="stylesheet" type="text/css" href="~/css/tree-control-attribute.css">
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<link rel="stylesheet" type="text/css" href="~/Content/Site.css" />
+
+
+
+<h2> File Transfer Client </h2>
+
+
+<div ng-app="fileUpload" ng-controller="MyCtrl">
+    <div>
+        <input type="button" id="getserver" ng-click='getserver()' value="Get Server File Structure" />
+    </div>
+
+
+
+    <div class="checkbox">
+        <label>
+            <input type="checkbox" ng-model="multiple">Upload Multiple Files<br><br>
+        </label>
+    </div>
+
+
+    <b> Uploading to path: </b> root:\{{namer}}
+    <br />
+    <br />
+    Upload a File
+    <div class="btn btn-default" ngf-select ng-model="files" ngf-multiple="multiple">Select File</div> <br /> <br />
+    Drop File: 
+    <div ngf-drop ngf-select ng-model="files" class="drop-box"
+         ngf-drag-over-class="dragover" ngf-multiple="true"  ngf-allow-dir="true">Drop files here or click to upload or drop in the tree</div>
+
+    <div ngf-no-file-drop>File Drag/Drop is not supported for this browser</div>
+    <div treecontrol class="tree-classic"
+         tree-model="dataForTheTree"
+         expanded-nodes="expandedNodes"
+         options="treeOptions"
+         on-selection="showSelected(node, selected)"
+         ng-model="files"
+         selected-node="node1">
+ <!--<span ngf-drop ng-mouseover="buttonClick($event, node)" ng-model="$parent.files" ngf-drag-over-class="dragover" ngf-multiple="true" ngf-allow-dir="true" >--> 
+        {{node.ObjectName}} &nbsp;&nbsp; {{node.FileSize}} 
+       
+       <!--  </span>-->
+    </div>
+    Files:
+    <ul>
+        <li ng-repeat="f in files" style="font:smaller">{{f.name}}</li>
+    </ul>
+    Upload Log:
+    <pre> <code id="listinfo">{{log}} </code></pre>
+</div>
+
+
